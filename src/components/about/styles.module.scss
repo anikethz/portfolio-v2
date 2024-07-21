@@ -1,0 +1,31 @@
+@import "@styles/common.scss";
+.container{
+
+}
+
+.about {
+
+    @include flexBodyCenter;
+
+    background: var(--color-purple);
+    color: var(--primary-color);
+    height: 40vh;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px 30px;
+
+    h1 {
+        margin: 35px 0px; 
+        // margin-bottom: ;
+    }
+
+    justify-content: flex-start;
+
+    @media (min-width: 800px){
+
+        height: 50vh;
+        padding: 10px 30px;
+
+    }
+
+}
