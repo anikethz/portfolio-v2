@@ -2,8 +2,33 @@
 
 import { BiData, BiDesktop, BiServer } from "react-icons/bi";
 import styles from "./styles.module.scss";
+import { Card } from "@components/common/card";
+import { IconType } from "react-icons";
+import { FunctionComponent, ReactNode } from "react";
 
 export function About() {
+  const stackItem: Array<{
+    stackIcon: FunctionComponent;
+    header: string;
+    items: string[];
+  }> = [
+    {
+      stackIcon: BiServer,
+      header: "Backend",
+      items: ["Java - Spring Boot", "JavaScript - NodeJs/ NestJS"],
+    },
+    {
+      stackIcon: BiData,
+      header: "Databases",
+      items: ["MySql", "Elasticsearch"],
+    },
+    {
+      stackIcon: BiDesktop,
+      header: "Observability",
+      items: ["ELK"],
+    },
+  ];
+
   return (
     <div className={styles.container}>
       <div className={styles.about}>
@@ -16,43 +41,25 @@ export function About() {
         </span>
       </div>
       <div className={styles.stack}>
-        <ul className={styles.stackUl}>
-          <li className={styles.stackLi}>
-            <h2>Backend</h2>
-            <BiServer />
-            <ul>
-              <li>
-                <h3>Java - Spring Boot</h3>
+        <Card>
+          <ul className={styles.stackUl}>
+            {stackItem.map((si) => (
+              <li className={styles.stackLi} key={si.header}>
+                <div className={styles.stackIcon}>
+                  <si.stackIcon />
+                </div>
+                <h2>{si.header}</h2>
+                <ul>
+                  {si.items.map((item, idx) => (
+                    <li key={idx}>
+                      <h3>{item}</h3>
+                    </li>
+                  ))}
+                </ul>
               </li>
-              <li>
-                <h3>JavaScript - NodeJs / NestJS</h3>
-              </li>
-            </ul>
-          </li>
-
-          <li className={styles.stackLi}>
-            <h2>Databases</h2>
-            <BiData />
-            <ul>
-              <li>
-                <h3>Elasticsearch</h3>
-              </li>
-              <li>
-                <h3>MySQL</h3>
-              </li>
-            </ul>
-          </li>
-
-          <li className={styles.stackLi}>
-            <h2>Observability</h2>
-            <BiDesktop />
-            <ul>
-              <li>
-                <h3>ELK</h3>
-              </li>
-            </ul>
-          </li>
-        </ul>
+            ))}
+          </ul>
+        </Card>
       </div>
     </div>
   );

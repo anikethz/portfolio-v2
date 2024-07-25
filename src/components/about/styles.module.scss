@@ -1,6 +1,6 @@
 @import "@styles/common.scss";
 .container{
-
+    text-align: center;
 }
 
 .about {
@@ -11,7 +11,6 @@
     color: var(--primary-color);
     height: 40vh;
     flex-direction: column;
-    text-align: center;
     padding: 10px 30px;
 
     h1 {
@@ -28,4 +27,51 @@
 
     }
 
+}
+
+.stack {
+
+    @include flexBodyCenter;
+    margin-top: -9rem;
+    width: 100vw;
+
+    ul {
+        list-style-type: none;
+    }
+}
+
+.stackUl {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    @media (min-width: 800px){
+        flex-direction: row;
+    }
+
+}
+
+.stackLi {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+
+}
+
+.stackIcon {
+
+    background: var(--secondary-color);
+    height: 2rem;
+    width: 2rem;
+    padding: 8px;
+    border-radius: 50%;
+    svg {
+        height: 100%;
+        width: 100%;
+    }
 }
