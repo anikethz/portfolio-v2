@@ -11,11 +11,14 @@ export function About() {
     stackIcon: FunctionComponent;
     header: string;
     items: string[];
+    content?: string;
   }> = [
     {
       stackIcon: BiServer,
       header: "Backend",
       items: ["Java - Spring Boot", "JavaScript - NodeJs/ NestJS"],
+      content:
+        "Developed a system for caching data from Salesforce and power search and application data for providers",
     },
     {
       stackIcon: BiData,
